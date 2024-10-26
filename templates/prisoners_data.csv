@@ -1,0 +1,4 @@
+age;gender;crime_type;behavior_score;mental_state;skills;recidivism
+35;1;0;5;3;4;1
+42;0;1;3;2;5;0
+29;1;2;4;5;3;1

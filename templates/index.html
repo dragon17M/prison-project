@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>تطبيق توقع العودة للجريمة</title>
+</head>
+<body>
+    <h1>مرحبًا بك في تطبيق توقع العودة للجريمة!</h1>
+    <p>هذا هو تطبيق يقدم توقعات حول العودة إلى الجريمة بناءً على بيانات السجناء.</p>
+    
+    <h2>إدخال بيانات السجين</h2>
+    <form action="/predict" method="post">
+        <label>العمر: <input type="number" name="age" required></label><br>
+        <label>الجنس (1 للذكر، 0 للأنثى): <input type="number" name="gender" required></label><br>
+        <label>نوع الجريمة: <input type="number" name="crime_type" required></label><br>
+        <label>نقاط السلوك: <input type="number" name="behavior_score" required></label><br>
+        <label>الحالة النفسية: <input type="number" name="mental_state" required></label><br>
+        <label>المهارات: <input type="number" name="skills" required></label><br>
+        <button type="submit">تنبؤ وإظهار البرنامج</button>
+    </form>
+</body>
+</html>
