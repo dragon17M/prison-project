@@ -3,7 +3,7 @@ import joblib
 import pandas as pd
 
 # تحميل نموذج التنبؤ
-model = joblib.load('recidivism_model.pkl')
+model = joblib.load('C:/sqlite/prison_project/recidivism_prediction/recidivism_model.pkl')
 
 # تهيئة التطبيق
 app = Flask(__name__)
