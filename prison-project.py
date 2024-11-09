@@ -1,9 +1,11 @@
 from flask import Flask, request, render_template, jsonify
 import joblib
 import pandas as pd
+import os  # لإعداد المنفذ بشكل ديناميكي وللوصول إلى المتغيرات البيئية
 
-# تحميل نموذج التنبؤ من الملف
-model = joblib.load('C:/sqlite/prison_project/recidivism_prediction/recidivism_model.pkl')
+# تحميل نموذج التنبؤ باستخدام المسار من المتغير البيئي
+model_path = os.getenv('MODEL_PATH', 'C:/sqlite/prison_project/recidivism_prediction/recidivism_model.pkl')
+model = joblib.load(model_path)
 
 # تهيئة التطبيق
 app = Flask(__name__)
@@ -56,4 +58,5 @@ def predict():
 
 # تشغيل التطبيق
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))  # إعداد المنفذ بشكل ديناميكي
+    app.run(host='0.0.0.0', port=port)
