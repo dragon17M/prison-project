@@ -1,1 +1,1 @@
-web: python prison-project.py
+web: gunicorn prison-project:app
